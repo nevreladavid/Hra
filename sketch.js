@@ -15,7 +15,7 @@ let boxImg;
 let bkgImg;
 
 function preload() {
-  dotImg = loadImage('images/redBird.png');
+  dotImg = loadImage('images/greenBird.png');
   boxImg = loadImage('images/Box.png');
   bkgImg = loadImage('images/background0.png');
 }
