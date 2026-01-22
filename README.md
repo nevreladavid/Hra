@@ -1,4 +1,4 @@
 # Hra
 PVY - pololetní úkol
 
-Zahrej si ZDE ()
+Zahrej si ZDE (https://nevreladavid.github.io/Hra/)
