@@ -1,13 +1,33 @@
 class Bird {
-    constructor(x, y, r) {
-        this.x = x;
-        this.y = y;
-        this.radius = r
-    }
+  constructor(x, y, r) {
+    const options = {
+      restitution: 0.5
+    };
+    this.body = Matter.Bodies.circle(x, y, r, options);
+    Matter.Body.setMass(this.body, this.body.mass * 4);
+    Matter.World.add(world, this.body);
+    this.r = r;
+  }
+
+ isStopped() {
+  return this.body.speed < 0.3;
+}
+
+reset(x, y) {
+  Matter.Body.setPosition(this.body, { x, y });
+  Matter.Body.setVelocity(this.body, { x: 0, y: 0 });
+  Matter.Body.setAngle(this.body, 0);
+}
 
 
-    show() {
-        fill (0);
-        rect(this.x, this.y, this.r);
-    }
+  show() {
+    const pos = this.body.position;
+    const angle = this.body.angle;
+    push();
+    translate(pos.x, pos.y);
+    rotate(angle);
+    imageMode(CENTER);
+    image(dotImg, 0, 0, this.r * 2, this.r * 2);
+    pop();
+  }
 }
