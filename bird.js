@@ -13,10 +13,16 @@ class Bird {
   return this.body.speed < 0.3;
 }
 
-reset(x, y) {
-  Matter.Body.setPosition(this.body, { x, y });
+reset(x, y, attachedPoint = null) {
+  Matter.Body.setPosition(this.body, { x: x, y: y });
   Matter.Body.setVelocity(this.body, { x: 0, y: 0 });
+  Matter.Body.setAngularVelocity(this.body, 0);
   Matter.Body.setAngle(this.body, 0);
+
+  // pokud chceme, může se pták hned objevit v bodě praku
+  if (attachedPoint) {
+    Matter.Body.setPosition(this.body, { x: attachedPoint.x, y: attachedPoint.y });
+  }
 }
 
 
